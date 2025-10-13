@@ -32,7 +32,6 @@ const {
       rel="stylesheet"
     />
   </head>
-
   <body class="bg-gray-50 text-gray-800 font-inter flex flex-col min-h-screen">
     <!-- Navegación -->
     <header class="shadow-md bg-blue-700 text-white">
@@ -40,7 +39,7 @@ const {
     </header>
 
     <!-- Contenido principal -->
-    <main id="main-content" class="flex-grow">
+    <main id="main-content" class="flex-grow bg-white">
       <slot />
     </main>
 
@@ -60,24 +59,32 @@ const {
       </div>
     </footer>
   </body>
-</html>
 
-<style>
-  :root {
-    --blue-primary: #1d4ed8;
-    --blue-dark: #1e3a8a;
-  }
+  <style>
+    :root {
+      --blue-primary: #1d4ed8;
+      --blue-dark: #1e3a8a;
+      --background-light: #f9f5f0; /* arena claro */
+      --text-dark: #0b2e34;
+    }
 
-  body {
-    font-family: 'Inter', sans-serif;
-  }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background-light);
+      color: var(--text-dark);
+      margin: 0;
+    }
 
-  a {
-    color: var(--blue-primary);
-    text-decoration: none;
-  }
+    main {
+      background-color: #ffffff;
+    }
 
-  a:hover {
-    text-decoration: underline;
-  }
-</style>
+    a {
+      color: var(--blue-primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
