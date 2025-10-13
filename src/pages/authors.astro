@@ -1,117 +1,131 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 
-const title = "Autores del Proyecto";
-const authors = [
-  {
-    name: "Jose Daniel Ramirez Saldaña",
-    role: "Analista de Datos y Desarrollador",
-    description:
-      "Tecnólogo en Análisis y Desarrollo de Software, con formación en Ingeniería Mecánica y Archivística. Su enfoque combina la analítica de datos con la optimización de procesos y la modernización documental.",
-    image: "/images/jose.jpg",
-  },
-  {
-    name: "Brianne Julie Baquero Pinilla",
-    role: "Arquitecta de Información y Colaboradora en Analítica",
-    description:
-      "Estudiante de Archivística e Inteligencia de Negocios. Interesada en la integración de herramientas de Big Data para fortalecer la gestión documental y la toma de decisiones basada en datos.",
-    image: "/images/brianne.jpg",
-  },
-];
+const title = "Autores";
 ---
 
 <MainLayout title={title}>
   <section class="authors-section">
     <h1>👥 {title}</h1>
     <p class="intro">
-      Este proyecto fue desarrollado en el marco del curso <strong>Arquitectura del Big Data y Analítica</strong>. 
-      El objetivo fue diseñar una plataforma que permita integrar fuentes de datos y un asistente inteligente basado en Chatbase para explorar información indexada.
+      En esta sección se presentan los autores del proyecto, quienes aportaron sus conocimientos
+      técnicos, analíticos y metodológicos para el desarrollo de esta propuesta académica y tecnológica.
     </p>
 
     <div class="authors-grid">
-      {authors.map((author) => (
-        <article class="author-card">
-          
-          <h2>{author.name}</h2>
-          <h3>{author.role}</h3>
-          <p>{author.description}</p>
-        </article>
-      ))}
+      <!-- Autor 1 -->
+      <div class="author-card">
+        <h3>José Daniel Ramírez Saldaña</h3>
+        <p class="role">Tecnólogo en Análisis y Desarrollo de Software</p>
+        <p class="desc">
+          Enfocado en la integración de herramientas de inteligencia de negocios y modernización institucional.
+          Desarrolló la arquitectura técnica y el asistente virtual del proyecto.
+        </p>
+      </div>
+
+      <!-- Autor 2 -->
+      <div class="author-card">
+        <h3>Brianne Julie Baquero Pinilla</h3>
+        <p class="role">Tecnóloga en Archivística e Inteligencia de Negocios</p>
+        <p class="desc">
+          Aportó en la estructuración de las fuentes de datos, el análisis documental y la integración de la
+          información sobre víctimas en Colombia.
+        </p>
+      </div>
     </div>
   </section>
 </MainLayout>
 
 <style>
   :root {
-    --color-bg: #f9f5f0;
-    --color-text: #0b2e34;
+    --color-bg: #f8fafc;
+    --color-card: #ffffff;
+    --color-text: #1e293b;
     --color-accent: #007c91;
-    --color-hover: #cbe3e7;
+    --color-muted: #64748b;
+    --shadow: 0 6px 18px rgba(0, 124, 145, 0.1);
   }
 
   .authors-section {
-    padding: 2rem 1.5rem;
-    text-align: center;
     background-color: var(--color-bg);
+    padding: 3rem 1.5rem;
+    text-align: center;
   }
 
   h1 {
     color: var(--color-accent);
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
   }
 
   .intro {
-    max-width: 800px;
-    margin: 0 auto 2rem;
-    font-size: 1.1rem;
-    color: var(--color-text);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
   .authors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    justify-content: center;
+    gap: 2rem;
+    justify-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
   .author-card {
-    background: white;
-    border: 1px solid var(--color-hover);
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: var(--color-card);
+    color: var(--color-text);
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 320px;
   }
 
   .author-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 124, 145, 0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 124, 145, 0.15);
   }
 
-  .author-photo {
-    width: 120px;
-    height: 120px;
+  .avatar {
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
+    border: 3px solid var(--color-accent);
   }
 
-  h2 {
+  .author-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
     color: var(--color-text);
-    font-size: 1.3rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
   }
 
-  h3 {
+  .role {
     color: var(--color-accent);
-    font-size: 1rem;
-    margin-bottom: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
   }
 
-  p {
-    color: var(--color-text);
-    font-size: 0.95rem;
+  .desc {
+    font-size: 0.9rem;
+    color: var(--color-muted);
     line-height: 1.5;
+  }
+
+  @media (max-width: 640px) {
+    .author-card {
+      padding: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
   }
 </style>
