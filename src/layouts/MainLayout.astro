@@ -1,0 +1,83 @@
+---
+import Navbar from "../components/navbar.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Proyecto académico - Arquitectura del Big Data y Analítica. Plataforma de inteligencia de datos aplicada a la Unidad para las Víctimas."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Paleta de colores académica -->
+    <meta name="theme-color" content="#1d4ed8" />
+
+    <!-- Fuentes y estilos base -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-gray-50 text-gray-800 font-inter flex flex-col min-h-screen">
+    <!-- Navegación -->
+    <header class="shadow-md bg-blue-700 text-white">
+      <Navbar />
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-gray-100 py-6 mt-10">
+      <div class="max-w-5xl mx-auto text-center space-y-2">
+        <p class="text-sm">
+          Proyecto desarrollado por <strong>Jose Daniel Ramirez Saldaña</strong> y
+          <strong>Brianne Julie Baquero Pinilla</strong>
+        </p>
+        <p class="text-xs text-gray-300">
+          Curso: <em>Arquitectura del Big Data y Analítica</em> · 2025
+        </p>
+        <p class="text-xs text-gray-400">
+          Desarrollado con ❤️ usando <a href="https://astro.build" class="text-blue-300 hover:underline" target="_blank">Astro</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :root {
+    --blue-primary: #1d4ed8;
+    --blue-dark: #1e3a8a;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  a {
+    color: var(--blue-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>

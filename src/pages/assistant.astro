@@ -1,0 +1,113 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const title = "Asistente Virtual";
+---
+
+<MainLayout title={title}>
+  <section class="assistant-section">
+    <header class="assistant-header">
+      <h1>💬 {title}</h1>
+      <p class="intro">
+        Bienvenido al <strong>Asistente Virtual</strong> del proyecto.  
+        Este agente fue entrenado con información documental y técnica relacionada con el desarrollo académico,
+        tecnológico y analítico realizado por <strong>Jose Daniel Ramirez Saldaña</strong> y 
+        <strong>Brianne Julie Baquero Pinilla</strong>, en el marco del curso 
+        <em>Arquitectura del Big Data y Analítica</em>.
+      </p>
+    </header>
+
+    <article class="chatbase-widget">
+      <h2>🤖 Interacción con el Asistente</h2>
+      <p>
+        El asistente está diseñado para responder preguntas sobre el contexto del proyecto, la arquitectura de datos,
+        los conceptos de Big Data, y la aplicación de herramientas cognitivas en el análisis documental sobre víctimas
+        en Colombia.  
+        Su objetivo es ofrecer información clara, contextualizada y accesible sin requerir conocimientos técnicos avanzados.
+      </p>
+
+      <!-- 💬 Widget de Chatbase -->
+      <div class="iframe-container">
+        <iframe
+          src="https://www.chatbase.co/chatbot-iframe/ygN4xCVmtIiSanFUjgvqH"
+          width="100%"
+          height="700"
+          frameborder="0"
+          allow="clipboard-write; encrypted-media"
+          class="chatbase-frame"
+        ></iframe>
+      </div>
+    </article>
+  </section>
+</MainLayout>
+
+<style>
+  :root {
+    --color-bg: #f9f5f0;
+    --color-text: #0b2e34;
+    --color-accent: #007c91;
+    --color-hover: #cbe3e7;
+  }
+
+  .assistant-section {
+    background-color: var(--color-bg);
+    padding: 2.5rem 1.5rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .assistant-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    color: var(--color-accent);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .intro {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+
+  .chatbase-widget {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 124, 145, 0.1);
+  }
+
+  .chatbase-widget h2 {
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .chatbase-widget p {
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .iframe-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 124, 145, 0.15);
+  }
+
+  .chatbase-frame {
+    border: none;
+    width: 100%;
+    height: 700px;
+  }
+
+  @media (max-width: 768px) {
+    .chatbase-frame {
+      height: 600px;
+    }
+  }
+</style>

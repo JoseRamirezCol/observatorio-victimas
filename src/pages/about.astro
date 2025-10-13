@@ -1,0 +1,128 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const title = "Arquitectura del Sistema";
+---
+
+<MainLayout title={title}>
+  <section class="architecture-page">
+    <h1>🧩 {title}</h1>
+    <p class="intro">
+      Este documento presenta la arquitectura conceptual implementada en el proyecto 
+      <strong>Plataforma de Inteligencia de Datos - Unidad para las Víctimas</strong>.  
+      Su propósito es describir las capas que componen el sistema, el flujo de información entre ellas
+      y la integración del servicio cognitivo <em>ChatBase.co</em>.
+    </p>
+
+    <!-- 🌐 Diseño general de la arquitectura -->
+    <article class="section">
+      <h2>📘 Diseño general de la arquitectura</h2>
+      <p>
+        La arquitectura propuesta se basa en un modelo de <strong>cuatro capas</strong>, diseñado para garantizar 
+        la interoperabilidad entre los datos, el procesamiento cognitivo y la experiencia del usuario.  
+        Cada capa cumple una función específica dentro del flujo de información, que inicia con la recolección de datos
+        y finaliza con la publicación del asistente virtual en un entorno web.
+      </p>
+
+      <ul class="list-disc pl-6 space-y-2">
+        <li>
+          <strong>1. Fuentes de datos:</strong> constituidas por archivos en formato <em>Word (.docx)</em>, 
+          <em>PDF (.pdf)</em> y <em>Texto (.txt)</em>, que contienen información oficial relacionada con las 
+          víctimas del conflicto armado en Colombia.  
+          Estos documentos conforman la base informativa que nutre la capa cognitiva.
+        </li>
+        <li>
+          <strong>2. Servicio cognitivo:</strong> implementado mediante la plataforma <em>ChatBase.co</em>, 
+          que permite indexar documentos y crear un modelo de lenguaje personalizado para responder preguntas
+          de manera contextual y semántica.
+        </li>
+        <li>
+          <strong>3. Base de conocimiento:</strong> compuesta por los contenidos procesados del servicio cognitivo, 
+          los cuales representan la síntesis estructurada de la información sobre las víctimas en Colombia.  
+          Esta base es la fuente directa de respuestas para el asistente.
+        </li>
+        <li>
+          <strong>4. Publicación:</strong> consiste en la implementación de un sitio web construido con <em>Astro</em>,
+          que actúa como la interfaz de usuario.  
+          Desde aquí, el público puede interactuar con el asistente virtual en tiempo real.
+        </li>
+      </ul>
+    </article>
+
+    <!-- 🧠 Integración del servicio cognitivo -->
+    <article class="section">
+      <h2>🧠 Integración del servicio cognitivo</h2>
+      <p>
+        El componente cognitivo es el núcleo del sistema, encargado de interpretar el lenguaje natural de los usuarios.
+        A través de <strong>ChatBase</strong>, los documentos indexados son analizados mediante un modelo de inteligencia
+        artificial que identifica patrones de texto, conceptos y relaciones contextuales.  
+        Este modelo genera respuestas coherentes con la información almacenada en la base de conocimiento.
+      </p>
+
+      <p>
+        Para garantizar un funcionamiento óptimo en el plan gratuito de ChatBase (limitado a <strong>400 KB</strong> de datos),
+        los documentos se procesaron y resumieron antes de su carga, priorizando la calidad semántica sobre la cantidad de texto.
+      </p>
+    </article>
+
+    <!-- 🔁 Flujo de información -->
+    <article class="section">
+      <h2>🔁 Flujo de información</h2>
+      <p>
+        El flujo general del sistema puede describirse de la siguiente manera:
+      </p>
+
+      <ol class="list-decimal pl-6 space-y-1">
+        <li>Los archivos de texto, PDF y Word son recopilados como fuentes primarias.</li>
+        <li>Estos documentos son indexados en el servicio cognitivo de <em>ChatBase.co</em>.</li>
+        <li>El modelo entrena su base de conocimiento para comprender los temas y responder preguntas sobre víctimas.</li>
+        <li>El asistente se publica dentro del sitio web, permitiendo consultas directas desde el navegador.</li>
+      </ol>
+
+      <figure class="diagram">
+        <img src="/images/arquitectura-simple.png" alt="Diagrama de arquitectura del sistema" />
+        <figcaption>Figura 1. Arquitectura general del asistente virtual sobre víctimas en Colombia.</figcaption>
+      </figure>
+    </article>
+
+    <!-- 💬 Conclusión -->
+    <article class="section">
+      <h2>💬 Rol de ChatBase en el sistema</h2>
+      <p>
+        <em>ChatBase</em> actúa como el componente de inteligencia del sistema.  
+        Su integración permite convertir un conjunto de documentos estáticos en una interfaz conversacional, 
+        capaz de comprender y responder preguntas humanas.  
+        De esta manera, el sistema trasciende la simple consulta documental, ofreciendo una experiencia cognitiva
+        que conecta a los usuarios con la información de forma intuitiva y eficiente.
+      </p>
+    </article>
+  </section>
+</MainLayout>
+
+<style>
+  :root {
+    --color-bg: #f9f5f0;
+    --color-text: #0b2e34;
+    --color-accent: #007c91;
+    --color-hover: #cbe3e7;
+  }
+
+  .architecture-page {
+    background-color: var(--color-bg);
+    padding: 2rem 1.5rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    color: var(--color-accent);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    text-align: center;
+    margin

@@ -1,0 +1,117 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const title = "Autores del Proyecto";
+const authors = [
+  {
+    name: "Jose Daniel Ramirez Saldaña",
+    role: "Analista de Datos y Desarrollador",
+    description:
+      "Tecnólogo en Análisis y Desarrollo de Software, con formación en Ingeniería Mecánica y Archivística. Su enfoque combina la analítica de datos con la optimización de procesos y la modernización documental.",
+    image: "/images/jose.jpg",
+  },
+  {
+    name: "Brianne Julie Baquero Pinilla",
+    role: "Arquitecta de Información y Colaboradora en Analítica",
+    description:
+      "Estudiante de Archivística e Inteligencia de Negocios. Interesada en la integración de herramientas de Big Data para fortalecer la gestión documental y la toma de decisiones basada en datos.",
+    image: "/images/brianne.jpg",
+  },
+];
+---
+
+<MainLayout title={title}>
+  <section class="authors-section">
+    <h1>👥 {title}</h1>
+    <p class="intro">
+      Este proyecto fue desarrollado en el marco del curso <strong>Arquitectura del Big Data y Analítica</strong>. 
+      El objetivo fue diseñar una plataforma que permita integrar fuentes de datos y un asistente inteligente basado en Chatbase para explorar información indexada.
+    </p>
+
+    <div class="authors-grid">
+      {authors.map((author) => (
+        <article class="author-card">
+          
+          <h2>{author.name}</h2>
+          <h3>{author.role}</h3>
+          <p>{author.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  :root {
+    --color-bg: #f9f5f0;
+    --color-text: #0b2e34;
+    --color-accent: #007c91;
+    --color-hover: #cbe3e7;
+  }
+
+  .authors-section {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background-color: var(--color-bg);
+  }
+
+  h1 {
+    color: var(--color-accent);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    color: var(--color-text);
+  }
+
+  .authors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .author-card {
+    background: white;
+    border: 1px solid var(--color-hover);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .author-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 124, 145, 0.2);
+  }
+
+  .author-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    color: var(--color-text);
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  h3 {
+    color: var(--color-accent);
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  p {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+</style>
