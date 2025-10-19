@@ -4,7 +4,6 @@ const currentPath = Astro?.url?.pathname || "/";
 const navItems = [
   { href: "/", label: "Inicio", icon: "🏠" },
   { href: "/about", label: "Arquitectura", icon: "🧩" },
-  { href: "/assistant", label: "Asistente Virtual", icon: "💬" },
   { href: "/authors", label: "Autores", icon: "👥" },
 ];
 
@@ -18,7 +17,6 @@ function isActive(href: string) {
   <div class="nav-container">
     <a href="/" class="brand">
       <img src="/images/navBar40x40.png" alt="Logo" class="brand-logo" width="40" height="40" />
-      
     </a>
 
     <ul class="nav-list">
