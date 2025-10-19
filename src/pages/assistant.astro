@@ -17,25 +17,30 @@ const title = "Asistente Virtual";
       </p>
     </header>
 
-    <article class="chatbase-widget">
+    <article class="chatbase-info">
       <h2>🤖 Interacción con el Asistente</h2>
       <p>
         El asistente está diseñado para responder preguntas sobre el contexto del proyecto, la arquitectura de datos,
         los conceptos de Big Data, y la aplicación de herramientas cognitivas en el análisis documental sobre víctimas
-        en Colombia.  
+        en Colombia.
+      </p>
+      <p>
         Su objetivo es ofrecer información clara, contextualizada y accesible sin requerir conocimientos técnicos avanzados.
       </p>
 
-      <!-- 💬 Widget de Chatbase -->
-      <div class="iframe-container">
-        <iframe
-          src="https://www.chatbase.co/chatbot-iframe/ygN4xCVmtIiSanFUjgvqH"
-          width="100%"
-          height="700"
-          frameborder="0"
-          allow="clipboard-write; encrypted-media"
-          class="chatbase-frame"
-        ></iframe>
+      <div class="chat-instructions">
+        <h3>💡 Cómo usar el asistente</h3>
+        <p>
+          Haz clic en el <strong>botón flotante</strong> ubicado en la esquina inferior derecha de la pantalla 
+          para abrir el chat y comenzar a hacer preguntas sobre:
+        </p>
+        <ul>
+          <li>Registro Único de Víctimas (RUV)</li>
+          <li>Procesos de reparación y atención humanitaria</li>
+          <li>Sistema SIMAD ENTERPRISE</li>
+          <li>Indemnizaciones administrativas (SMLMV)</li>
+          <li>Derechos y servicios disponibles</li>
+        </ul>
       </div>
     </article>
   </section>
@@ -54,6 +59,8 @@ const title = "Asistente Virtual";
     padding: 2.5rem 1.5rem;
     line-height: 1.7;
     color: var(--color-text);
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   .assistant-header {
@@ -74,40 +81,61 @@ const title = "Asistente Virtual";
     font-size: 1rem;
   }
 
-  .chatbase-widget {
+  .chatbase-info {
     background: #ffffff;
     border-radius: 16px;
     padding: 2rem;
-    text-align: center;
     box-shadow: 0 6px 18px rgba(0, 124, 145, 0.1);
   }
 
-  .chatbase-widget h2 {
+  .chatbase-info h2 {
     color: var(--color-accent);
     margin-bottom: 1rem;
     font-size: 1.5rem;
+    text-align: center;
   }
 
-  .chatbase-widget p {
-    max-width: 900px;
-    margin: 0 auto 1.5rem;
+  .chatbase-info p {
+    margin-bottom: 1rem;
+    text-align: center;
   }
 
-  .iframe-container {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 124, 145, 0.15);
+  .chat-instructions {
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
   }
 
-  .chatbase-frame {
-    border: none;
-    width: 100%;
-    height: 700px;
+  .chat-instructions h3 {
+    color: var(--color-accent);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .chat-instructions ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .chat-instructions li {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
   }
 
   @media (max-width: 768px) {
-    .chatbase-frame {
-      height: 600px;
+    .assistant-section {
+      padding: 1.5rem 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .chatbase-info {
+      padding: 1.5rem;
     }
   }
 </style>
